@@ -50,11 +50,12 @@ while True:
                 
                 # For remove, check item existence first to avoid unnecessary quantity input
                 if action == 'remove' and item not in inventory:
-                    print(f"{item} doesn't exist in this inventory.")
+                    print(f"{item} not found in this inventory.")
                     continue
 
                 # Ask for quantity and validate it once here
                 try:
+                    # strip() is to ensure that the user input is clean and doesn't contain any extra spaces.
                     quantity = input(f"Enter the quantity to {action}: ").strip()
                     if quantity.lower() == 'back':
                         break
@@ -87,7 +88,7 @@ while True:
                     if item in inventory:
                         
                         if quantity > inventory[item]:
-                            print(f"You cannot remove {quantity}. Only {inventory[item]} available in stock.")
+                            print(f"You cannot remove {quantity} of {item}. Only {inventory[item]} of {item} available in stock.")
                         
                         elif quantity == inventory[item]:
                             
@@ -124,7 +125,7 @@ while True:
             print("Action log is empty.")   
    
     elif main_choice == '4':
-        print("Exiting....Thank you!")
+        print("Exiting Inventory....Thank you!")
         break
 
     else:
